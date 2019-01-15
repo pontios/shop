@@ -87,3 +87,7 @@ class CartItem(models.Model):
 
     def __str__(self):
         return self.product.slug
+
+class Order(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    accepted = models.BooleanField("Oбработано", default=True)
